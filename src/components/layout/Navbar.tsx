@@ -41,7 +41,8 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link
               href="/"
-              className="font-poppins font-bold text-xl md:text-2xl text-white tracking-tight"
+              className="font-poppins font-bold text-xl md:text-2xl text-white tracking-tight glitch"
+              data-text="katalysts"
             >
               katalysts
             </Link>

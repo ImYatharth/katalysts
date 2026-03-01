@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { WHY_DIFFERENT } from "@/lib/constants";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { BorderBeam } from "@/components/animations/BorderBeam";
 import { Check, X } from "lucide-react";
 
 export function WhyDifferent() {
@@ -19,6 +20,7 @@ export function WhyDifferent() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        {/* Traditional — static card */}
         <FadeIn direction="left">
           <div className="gradient-card rounded-xl border border-white/[0.06] p-6 md:p-8 h-full">
             <div className="flex items-center gap-2 mb-2">
@@ -41,8 +43,10 @@ export function WhyDifferent() {
           </div>
         </FadeIn>
 
+        {/* AI-native — card with BorderBeam */}
         <FadeIn direction="right">
-          <div className="gradient-card rounded-xl border border-primary/20 p-6 md:p-8 glow-primary h-full">
+          <div className="relative gradient-card rounded-xl border border-primary/20 p-6 md:p-8 glow-primary h-full overflow-hidden">
+            <BorderBeam colorFrom="#2563EB" colorTo="#FFE501" duration={8} />
             <div className="flex items-center gap-2 mb-2">
               <div className="w-3 h-3 rounded-full bg-success" />
               <span className="text-xs font-medium text-white/40 uppercase tracking-wider">

@@ -3,11 +3,8 @@
 import Link from "next/link";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { SERVICES_OVERVIEW } from "@/lib/constants";
-import {
-  StaggerChildren,
-  staggerItemVariants,
-} from "@/components/animations/StaggerChildren";
-import { motion } from "framer-motion";
+import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
+import { GlowCard } from "@/components/animations/GlowCard";
 import {
   Bot,
   BarChart3,
@@ -43,10 +40,10 @@ export function ServicesOverview() {
         {SERVICES_OVERVIEW.map((service, idx) => {
           const Icon = iconMap[service.icon];
           return (
-            <motion.div
+            <GlowCard
               key={idx}
               variants={staggerItemVariants}
-              className="group gradient-card rounded-xl border border-white/[0.06] p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:glow-blue"
+              glowColor="37, 99, 235"
             >
               <div className="w-12 h-12 rounded-xl bg-brand-blue/15 flex items-center justify-center mb-4 transition-colors group-hover:bg-brand-blue/25">
                 {Icon && <Icon className="w-6 h-6 text-brand-blue" />}
@@ -57,7 +54,7 @@ export function ServicesOverview() {
               <p className="text-white/50 text-sm leading-relaxed">
                 {service.description}
               </p>
-            </motion.div>
+            </GlowCard>
           );
         })}
       </StaggerChildren>
