@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { NeuralCanvas } from "@/components/animations/NeuralCanvas";
-import { TextScramble } from "@/components/animations/TextScramble";
 import { FloatingCode } from "@/components/animations/FloatingCode";
 import { MagneticButton } from "@/components/animations/MagneticButton";
+import { AnimatedText } from "@/components/ui/AnimatedText";
 
 export function Hero() {
   return (
@@ -62,24 +62,23 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Scramble headline */}
-        <h1 className="font-poppins font-extrabold text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-          <TextScramble
-            text={HERO.headline[0]}
-            delay={0.3}
-            className="block text-white font-poppins font-extrabold"
-          />
-          <TextScramble
-            text={HERO.headline[1]}
-            delay={1.4}
-            className="block text-primary mt-2 font-poppins font-extrabold"
-          />
-        </h1>
+        {/* Animated headline */}
+        <AnimatedText
+          text={HERO.headline[0]}
+          as="h1"
+          className="font-poppins font-extrabold text-white justify-center text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+        />
+        <AnimatedText
+          text={HERO.headline[1]}
+          as="h1"
+          delay={0.5}
+          className="font-poppins font-extrabold text-primary justify-center mt-2 text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.6, duration: 0.6 }}
+          transition={{ delay: 1.0, duration: 0.6 }}
           className="mt-8 text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed"
         >
           {HERO.subtitle}
@@ -88,7 +87,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.8, duration: 0.6 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-4 text-base md:text-lg text-white/30 max-w-2xl mx-auto"
         >
           {HERO.subtext}
@@ -97,7 +96,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.0, duration: 0.6 }}
+          transition={{ delay: 1.4, duration: 0.6 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <MagneticButton>
@@ -122,7 +121,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3.5, duration: 0.8 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
           className="mt-20 flex flex-col items-center gap-2"
         >
           <span className="text-xs font-mono text-white/20 tracking-widest uppercase">
