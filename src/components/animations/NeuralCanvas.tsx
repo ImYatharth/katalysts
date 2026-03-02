@@ -105,8 +105,8 @@ export function NeuralCanvas() {
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = nearMouse
-              ? `rgba(255, 229, 1, ${alpha * 1.8})`
-              : `rgba(37, 99, 235, ${alpha})`;
+              ? `rgba(16, 185, 129, ${alpha * 1.8})`
+              : `rgba(16, 185, 129, ${alpha * 0.5})`;
             ctx.lineWidth = nearMouse ? 0.8 : 0.5;
             ctx.stroke();
           }
@@ -129,8 +129,8 @@ export function NeuralCanvas() {
         gradient.addColorStop(
           0,
           nearMouse
-            ? `rgba(255, 229, 1, ${0.35 + pulse * 0.2})`
-            : `rgba(37, 99, 235, ${0.28 + pulse * 0.15})`
+            ? `rgba(16, 185, 129, ${0.35 + pulse * 0.2})`
+            : `rgba(16, 185, 129, ${0.15 + pulse * 0.08})`
         );
         gradient.addColorStop(1, "transparent");
         ctx.beginPath();
@@ -142,8 +142,8 @@ export function NeuralCanvas() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
         ctx.fillStyle = nearMouse
-          ? `rgba(255, 229, 1, ${0.7 + pulse * 0.3})`
-          : `rgba(100, 150, 255, ${0.55 + pulse * 0.3})`;
+          ? `rgba(16, 185, 129, ${0.7 + pulse * 0.3})`
+          : `rgba(16, 185, 129, ${0.35 + pulse * 0.2})`;
         ctx.fill();
       });
 

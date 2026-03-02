@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CTA_DATA } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
-import { MagneticButton } from "@/components/animations/MagneticButton";
+
 import { BorderBeam } from "@/components/animations/BorderBeam";
 
 export function CTA() {
@@ -48,20 +48,16 @@ export function CTA() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="flex justify-center"
         >
-          <MagneticButton strength={0.5}>
-            <div className="relative">
-              <Button
-                href={CTA_DATA.href}
-                external
-                variant="primary"
-                size="lg"
-                className="animate-pulse-glow relative overflow-hidden"
-              >
-                {CTA_DATA.buttonLabel}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </MagneticButton>
+          <Button
+            href={CTA_DATA.href}
+            external
+            variant="primary"
+            size="lg"
+            className="animate-pulse-glow relative overflow-hidden"
+          >
+            {CTA_DATA.buttonLabel}
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </motion.div>
 
         {/* Stats strip */}
@@ -72,7 +68,7 @@ export function CTA() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="mt-16 relative rounded-xl border border-white/[0.06] gradient-card p-6 overflow-hidden"
         >
-          <BorderBeam colorFrom="#2563EB" colorTo="#FFE501" duration={12} />
+          <BorderBeam duration={12} />
           <div className="grid grid-cols-3 gap-4 text-center">
             {[
               { value: "5×", label: "faster delivery" },

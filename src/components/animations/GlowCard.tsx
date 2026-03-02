@@ -14,7 +14,7 @@ interface GlowCardProps {
 export function GlowCard({
   children,
   className,
-  glowColor = "37, 99, 235",
+  glowColor = "16, 185, 129",
   variants,
 }: GlowCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);

@@ -10,15 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#FFE501",
-          light: "#FFF44F",
-          dark: "#E6CE00",
+          DEFAULT: "#10B981",
+          light: "#34D399",
+          dark: "#059669",
         },
         brand: {
-          blue: "#2563EB",
-          "blue-light": "#3B82F6",
-          "blue-dark": "#1D4ED8",
-          indigo: "#4F46E5",
+          blue: "#10B981",
+          "blue-light": "#34D399",
+          "blue-dark": "#059669",
+          indigo: "#0D9268",
         },
         dark: {
           DEFAULT: "#0A0A0A",
@@ -38,13 +38,14 @@ const config: Config = {
           secondary: "#6B7280",
           muted: "#9CA3AF",
           inverse: "#FFFFFF",
-          "inverse-muted": "#A1A1AA",
+          "inverse-muted": "#A3A3A3",
         },
         success: "#22C55E",
       },
       fontFamily: {
-        poppins: ["var(--font-poppins)"],
-        inter: ["var(--font-inter)"],
+        poppins: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        inter: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       keyframes: {
         "accordion-down": {
@@ -56,10 +57,10 @@ const config: Config = {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(255, 229, 1, 0.3)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" },
           "50%": {
             boxShadow:
-              "0 0 50px rgba(255, 229, 1, 0.65), 0 0 80px rgba(255, 229, 1, 0.2)",
+              "0 0 50px rgba(16, 185, 129, 0.65), 0 0 80px rgba(16, 185, 129, 0.2)",
           },
         },
         aurora: {

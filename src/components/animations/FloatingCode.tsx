@@ -16,7 +16,7 @@ const FRAGMENTS = [
   { text: "∇ loss = 0", top: 72, left: 55, duration: 20, delay: -8 },
   { text: "llm.complete()", top: 85, left: 70, duration: 14, delay: -1 },
   { text: "tokenize(text)", top: 42, left: 4, duration: 16, delay: -10 },
-  { text: "0xFFE501", top: 30, left: 92, duration: 12, delay: -15 },
+  { text: "0x10B981", top: 30, left: 92, duration: 12, delay: -15 },
   { text: "ctx_len=128k", top: 58, left: 44, duration: 11, delay: -3 },
   { text: "temperature=0.7", top: 88, left: 18, duration: 19, delay: -12 },
 ];

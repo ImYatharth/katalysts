@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { NeuralCanvas } from "@/components/animations/NeuralCanvas";
 import { FloatingCode } from "@/components/animations/FloatingCode";
-import { MagneticButton } from "@/components/animations/MagneticButton";
+
 import { AnimatedText } from "@/components/ui/AnimatedText";
 
 export function Hero() {
@@ -99,22 +99,18 @@ export function Hero() {
           transition={{ delay: 1.4, duration: 0.6 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <MagneticButton>
-            <Link href={HERO.cta1.href}>
-              <Button variant="outline" size="lg">
-                {HERO.cta1.label}
-              </Button>
-            </Link>
-          </MagneticButton>
+          <Link href={HERO.cta1.href}>
+            <Button variant="outline" size="lg">
+              {HERO.cta1.label}
+            </Button>
+          </Link>
 
-          <MagneticButton>
-            <Link href={HERO.cta2.href}>
-              <Button variant="primary" size="lg" className="animate-pulse-glow">
-                {HERO.cta2.label}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </MagneticButton>
+          <Link href={HERO.cta2.href}>
+            <Button variant="primary" size="lg" className="animate-pulse-glow">
+              {HERO.cta2.label}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Scroll indicator */}

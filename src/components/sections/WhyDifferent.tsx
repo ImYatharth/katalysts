@@ -46,7 +46,7 @@ export function WhyDifferent() {
         {/* AI-native — card with BorderBeam */}
         <FadeIn direction="right">
           <div className="relative gradient-card rounded-xl border border-primary/20 p-6 md:p-8 glow-primary h-full overflow-hidden">
-            <BorderBeam colorFrom="#2563EB" colorTo="#FFE501" duration={8} />
+            <BorderBeam duration={8} />
             <div className="flex items-center gap-2 mb-2">
               <div className="w-3 h-3 rounded-full bg-success" />
               <span className="text-xs font-medium text-white/40 uppercase tracking-wider">
