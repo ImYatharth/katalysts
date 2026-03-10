@@ -1,70 +1,76 @@
 "use client";
 
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { HOW_WE_THINK } from "@/lib/constants";
-import { FadeIn } from "@/components/animations/FadeIn";
-import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 import { motion } from "framer-motion";
-import { Brain, Target } from "lucide-react";
-
-const icons = [Brain, Target];
+import { HOW_WE_THINK } from "@/lib/constants";
 
 export function HowWeThink() {
   return (
-    <SectionWrapper id="how-we-think">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-white">
-          {HOW_WE_THINK.title}
-        </h2>
-        <p className="mt-6 text-lg text-white/50 leading-relaxed">
-          {HOW_WE_THINK.subtitle}
-        </p>
-      </div>
+    <section id="how-we-think" className="py-6 px-6">
+      <div className="container mx-auto">
+        <div className="section-container p-10 lg:p-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              philosophy
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-6">
+              {HOW_WE_THINK.title}
+            </h2>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-xl">
+              {HOW_WE_THINK.subtitle}
+            </p>
+          </motion.div>
 
-      <FadeIn>
-        <blockquote className="max-w-3xl mx-auto mb-16 border-l-4 border-primary pl-6 py-2">
-          <p className="text-xl md:text-2xl font-poppins font-semibold text-white/90 italic">
-            &ldquo;{HOW_WE_THINK.quote}&rdquo;
-          </p>
-        </blockquote>
-      </FadeIn>
+          <motion.blockquote
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="border-l-2 border-border pl-6 py-2 mb-12"
+          >
+            <p className="text-lg font-medium text-foreground/80 italic">
+              &ldquo;{HOW_WE_THINK.quote}&rdquo;
+            </p>
+          </motion.blockquote>
 
-      <StaggerChildren className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {HOW_WE_THINK.sections.map((section, idx) => {
-          const Icon = icons[idx];
-          return (
-            <motion.div
-              key={idx}
-              variants={staggerItemVariants}
-              className="gradient-card rounded-xl border border-white/[0.06] p-6 md:p-8"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-brand-blue/20 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-brand-blue" />
-                </div>
-                <h3 className="font-poppins font-semibold text-lg text-white">
+          <div className="grid md:grid-cols-2 gap-6">
+            {HOW_WE_THINK.sections.map((section, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="border border-border rounded-xl p-6"
+              >
+                <h3 className="font-semibold text-foreground mb-2">
                   {section.title}
                 </h3>
-              </div>
-              <p className="text-white/50 mb-4">{section.description}</p>
-              <ul className="space-y-2 mb-4">
-                {section.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-white/40 text-sm"
-                  >
-                    <span className="text-primary mt-1">&#8226;</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm font-medium text-white/70">
-                {section.footer}
-              </p>
-            </motion.div>
-          );
-        })}
-      </StaggerChildren>
-    </SectionWrapper>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {section.description}
+                </p>
+                <ul className="space-y-2 mb-4">
+                  {section.items.map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
+                      <span className="text-foreground/40 mt-0.5 font-mono text-xs">&bull;</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-medium text-foreground/70">
+                  {section.footer}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

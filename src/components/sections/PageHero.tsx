@@ -9,16 +9,23 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative pt-36 pb-20 md:pb-28 overflow-hidden">
-      {/* Glow orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-blue/[0.06] rounded-full blur-[150px]" />
+    <section className="py-6 px-6 pt-8">
+      <div className="container mx-auto section-container p-10 lg:p-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 border border-border rounded-full px-3 py-1 text-xs font-mono text-muted-foreground w-fit mb-6"
+        >
+          <span className="w-2 h-2 bg-foreground rounded-sm" />
+          katalysts
+        </motion.div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl text-white"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold tracking-tight leading-[1.1] text-foreground mb-6"
         >
           {title}
         </motion.h1>
@@ -26,8 +33,8 @@ export function PageHero({ title, subtitle }: PageHeroProps) {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-6 text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-muted-foreground text-base leading-relaxed max-w-xl"
         >
           {subtitle}
         </motion.p>

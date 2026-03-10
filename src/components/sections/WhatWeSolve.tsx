@@ -1,94 +1,85 @@
 "use client";
 
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { CASE_STUDIES } from "@/lib/constants";
-import { StaggerChildren, staggerItemVariants } from "@/components/animations/StaggerChildren";
 import { motion } from "framer-motion";
-import { TrendingUp, DollarSign, Zap } from "lucide-react";
-
-const categoryIcons = [TrendingUp, DollarSign, Zap];
-const categoryColors = [
-  "bg-brand-blue/20 text-brand-blue",
-  "bg-success/20 text-success",
-  "bg-primary/20 text-primary-dark",
-];
+import { CASE_STUDIES } from "@/lib/constants";
 
 export function WhatWeSolve() {
   return (
-    <SectionWrapper id="what-we-solve">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-white">
-          what we solve
-        </h2>
-        <p className="mt-6 text-lg text-white/50 leading-relaxed">
-          types of problems we solve
-        </p>
-      </div>
+    <section id="what-we-solve" className="py-6 px-6">
+      <div className="container mx-auto">
+        <div className="section-container p-10 lg:p-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              case studies
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+              what we solve
+            </h2>
+          </motion.div>
 
-      <StaggerChildren className="grid md:grid-cols-3 gap-6 lg:gap-8">
-        {CASE_STUDIES.map((study, idx) => {
-          const Icon = categoryIcons[idx];
-          return (
-            <motion.div
-              key={idx}
-              variants={staggerItemVariants}
-              className="gradient-card rounded-xl border border-white/[0.06] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:glow-blue flex flex-col"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <div
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center ${categoryColors[idx]}`}
-                >
-                  <Icon className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/40">
+          <div className="grid md:grid-cols-3 gap-6">
+            {CASE_STUDIES.map((study, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="border border-border rounded-xl p-6 flex flex-col"
+              >
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
                   {study.category}
-                </span>
-              </div>
-
-              <h3 className="font-poppins font-semibold text-lg text-white mb-4">
-                {study.title}
-              </h3>
-
-              <div className="space-y-3 mb-6 flex-grow">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-1">
-                    problem
-                  </p>
-                  <p className="text-sm text-white/50 leading-relaxed">
-                    {study.problem}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-1">
-                    solution
-                  </p>
-                  <p className="text-sm text-white/50 leading-relaxed">
-                    {study.solution}
-                  </p>
-                </div>
-              </div>
-
-              <div className="border-t border-white/[0.06] pt-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">
-                  impact
                 </p>
-                <div className="grid grid-cols-2 gap-3">
-                  {study.impacts.map((impact, i) => (
-                    <div key={i}>
-                      <p className="font-poppins font-bold text-lg text-success">
-                        {impact.metric}
-                      </p>
-                      <p className="text-xs text-white/30 leading-tight">
-                        {impact.label}
-                      </p>
-                    </div>
-                  ))}
+                <h3 className="font-semibold text-foreground mb-4">
+                  {study.title}
+                </h3>
+
+                <div className="space-y-3 mb-6 flex-grow">
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">
+                      problem
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {study.problem}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-1">
+                      solution
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {study.solution}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </StaggerChildren>
-    </SectionWrapper>
+
+                <div className="border-t border-border pt-4">
+                  <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
+                    impact
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {study.impacts.map((impact, i) => (
+                      <div key={i}>
+                        <p className="font-semibold text-lg text-foreground">
+                          {impact.metric}
+                        </p>
+                        <p className="text-xs text-muted-foreground leading-tight">
+                          {impact.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

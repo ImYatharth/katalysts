@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-[#0A0A0A]`}
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-background`}
       >
         <Navbar />
         <main className="min-h-screen">{children}</main>
