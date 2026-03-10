@@ -25,20 +25,20 @@ export function Navbar() {
       transition={{ duration: 0.4 }}
       className="sticky top-0 z-50 bg-card border-b border-border"
     >
-      <div className="container mx-auto flex items-center justify-between py-3 px-6">
+      <div className="container mx-auto relative flex items-center justify-between py-3 px-6">
         <Link
           href="/"
-          className="font-semibold text-lg tracking-tight text-foreground"
+          className="font-semibold text-lg tracking-tight text-foreground relative z-10"
         >
           katalysts
         </Link>
 
-        <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+        <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground absolute inset-0 justify-center pointer-events-none">
           {NAV_LINKS.filter((l) => l.href !== "/").map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`hover:text-foreground transition-colors ${
+              className={`pointer-events-auto hover:text-foreground transition-colors ${
                 pathname === link.href ? "text-foreground" : ""
               }`}
             >
@@ -47,13 +47,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
-            className="hidden sm:inline-flex text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-4 py-2 font-mono"
-          >
-            contact
-          </Link>
+        <div className="flex items-center gap-3 relative z-10">
           <a
             href={CALENDLY_URL}
             target="_blank"
