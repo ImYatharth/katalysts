@@ -1,11 +1,7 @@
 "use client";
 
-import { DELIVERABLES } from "@/lib/constants";
-import {
-  StaggerChildren,
-  staggerItemVariants,
-} from "@/components/animations/StaggerChildren";
 import { motion } from "framer-motion";
+import { DELIVERABLES } from "@/lib/constants";
 import {
   FileText,
   Eye,
@@ -26,48 +22,47 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function Deliverables() {
   return (
-    <section className="gradient-subtle py-20 md:py-28 lg:py-32 border-y border-white/[0.04]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-white">
+    <section className="py-6 px-6">
+      <div className="container mx-auto">
+        <div className="section-container p-10 lg:p-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              deliverables
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
               what you get
             </h2>
-            <p className="mt-6 text-lg text-white/50 leading-relaxed">
-              every engagement includes
-            </p>
-          </div>
+          </motion.div>
 
-          <StaggerChildren className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {DELIVERABLES.map((item, idx) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden border border-border">
+            {DELIVERABLES.map((item, i) => {
               const Icon = iconMap[item.icon];
               return (
                 <motion.div
-                  key={idx}
-                  variants={staggerItemVariants}
-                  className="text-center p-6"
+                  key={item.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="bg-card p-8 hover:bg-muted/50 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    {Icon && (
-                      <Icon className="w-6 h-6 text-primary" />
-                    )}
-                  </div>
-                  <h3 className="font-poppins font-semibold text-white mb-2">
+                  {Icon && <Icon className="h-5 w-5 text-muted-foreground mb-4" />}
+                  <h3 className="font-semibold text-foreground mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>
               );
             })}
-          </StaggerChildren>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

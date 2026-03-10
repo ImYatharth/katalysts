@@ -2,23 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS, CALENDLY_URL } from "@/lib/constants";
-import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { NAV_LINKS, CALENDLY_URL } from "@/lib/constants";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -28,101 +19,95 @@ export function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <>
-      <nav
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
-        )}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+    <motion.nav
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="sticky top-0 z-50 bg-card border-b border-border"
+    >
+      <div className="container mx-auto flex items-center justify-between py-3 px-6">
+        <Link
+          href="/"
+          className="font-semibold text-lg tracking-tight text-foreground"
+        >
+          katalysts
+        </Link>
+
+        <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+          {NAV_LINKS.filter((l) => l.href !== "/").map((link) => (
             <Link
-              href="/"
-              className="font-poppins font-bold text-xl md:text-2xl text-white tracking-tight glitch"
-              data-text="katalysts"
+              key={link.href}
+              href={link.href}
+              className={`hover:text-foreground transition-colors ${
+                pathname === link.href ? "text-foreground" : ""
+              }`}
             >
-              katalysts
+              {link.label}
             </Link>
-
-            <div className="hidden lg:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "text-sm transition-colors duration-200 font-inter",
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-white/60 hover:text-white"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="hidden lg:block">
-              <Button href={CALENDLY_URL} external size="sm" variant="primary">
-                let&apos;s talk
-              </Button>
-            </div>
-
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden text-white p-2"
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          ))}
         </div>
-      </nav>
+
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contact"
+            className="hidden sm:inline-flex text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-4 py-2 font-mono"
+          >
+            contact
+          </Link>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex text-sm bg-primary text-primary-foreground rounded-lg px-4 py-2 font-mono hover:opacity-90 transition-opacity"
+          >
+            book a call
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-foreground p-1"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-[#0A0A0A] flex flex-col items-center justify-center gap-8"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-t border-border overflow-hidden"
           >
-            {NAV_LINKS.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
-              >
+            <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
+              {NAV_LINKS.map((link) => (
                 <Link
+                  key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "text-2xl font-poppins font-medium transition-colors",
+                  className={`text-sm py-1 transition-colors ${
                     pathname === link.href
-                      ? "text-primary"
-                      : "text-white hover:text-primary"
-                  )}
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </Link>
-              </motion.div>
-            ))}
-            <Button
-              href={CALENDLY_URL}
-              external
-              size="lg"
-              variant="primary"
-              className="mt-4"
-            >
-              let&apos;s talk
-            </Button>
+              ))}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm bg-primary text-primary-foreground rounded-lg px-4 py-2 font-mono hover:opacity-90 transition-opacity text-center mt-2"
+              >
+                book a call
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </motion.nav>
   );
 }
