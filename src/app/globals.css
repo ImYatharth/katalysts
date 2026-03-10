@@ -52,8 +52,13 @@ body::before {
 @layer components {
   .section-container {
     background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    border-radius: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      border: 1px solid hsl(var(--border));
+      border-radius: 1rem;
+    }
   }
 
   .texture-bg {

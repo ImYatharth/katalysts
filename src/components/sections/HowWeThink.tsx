@@ -5,9 +5,9 @@ import { HOW_WE_THINK } from "@/lib/constants";
 
 export function HowWeThink() {
   return (
-    <section id="how-we-think" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="how-we-think" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function HowWeThink() {
             </p>
           </motion.blockquote>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
             {HOW_WE_THINK.sections.map((section, idx) => (
               <motion.div
                 key={idx}
@@ -44,7 +44,7 @@ export function HowWeThink() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6"
+                className="border border-border rounded-xl p-4 sm:p-6"
               >
                 <h3 className="font-semibold text-foreground mb-2">
                   {section.title}

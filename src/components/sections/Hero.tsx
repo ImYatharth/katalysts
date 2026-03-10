@@ -7,9 +7,9 @@ import { HERO, CALENDLY_URL } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative py-3 px-4 sm:py-6 sm:px-6">
+    <section className="relative py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto section-container overflow-hidden">
-        <div className="p-6 sm:p-10 lg:p-16">
+        <div className="p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,20 +59,20 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center gap-3"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-3"
           >
             <a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground font-mono text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+              className="bg-primary text-primary-foreground font-mono text-sm px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2"
             >
               let&apos;s talk
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
             <Link
               href="/process"
-              className="flex items-center gap-2 border border-border text-foreground font-mono text-sm px-6 py-3 rounded-lg hover:bg-muted transition-colors"
+              className="flex items-center gap-2 border border-border text-foreground font-mono text-sm px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg hover:bg-muted transition-colors"
             >
               see how we work
             </Link>

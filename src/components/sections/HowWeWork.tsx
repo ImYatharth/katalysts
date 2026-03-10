@@ -5,9 +5,9 @@ import { PROCESS_STEPS } from "@/lib/constants";
 
 export function HowWeWork() {
   return (
-    <section id="process" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="process" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function HowWeWork() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {PROCESS_STEPS.map((step, i) => (
               <motion.div
                 key={step.number}

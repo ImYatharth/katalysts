@@ -5,9 +5,9 @@ import { CASE_STUDIES } from "@/lib/constants";
 
 export function WhatWeSolve() {
   return (
-    <section id="what-we-solve" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="what-we-solve" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function WhatWeSolve() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-3 sm:gap-6">
             {CASE_STUDIES.map((study, idx) => (
               <motion.div
                 key={idx}
@@ -30,7 +30,7 @@ export function WhatWeSolve() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6 flex flex-col"
+                className="border border-border rounded-xl p-4 sm:p-6 flex flex-col"
               >
                 <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
                   {study.category}

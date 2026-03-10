@@ -9,9 +9,9 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="faq" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,11 +39,11 @@ export function FAQ() {
                   onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-start justify-between py-5 text-left group"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-2.5 sm:gap-4">
                     <span className="font-mono text-xs text-muted-foreground mt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-medium text-foreground group-hover:text-muted-foreground transition-colors">
+                    <span className="font-medium text-sm sm:text-base text-foreground group-hover:text-muted-foreground transition-colors">
                       {faq.question}
                     </span>
                   </div>
@@ -54,7 +54,7 @@ export function FAQ() {
                   )}
                 </button>
                 {open === i && (
-                  <div className="pb-5 pl-10 pr-8 text-sm text-muted-foreground leading-relaxed">
+                  <div className="pb-5 pl-6 pr-2 sm:pl-10 sm:pr-8 text-sm text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </div>
                 )}
