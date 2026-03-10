@@ -9,8 +9,8 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="py-3 px-4 sm:py-6 sm:px-6 pt-8">
-      <div className="container mx-auto section-container p-6 sm:p-10 lg:p-16">
+    <section className="py-2 sm:py-6 sm:px-6 pt-6 sm:pt-8">
+      <div className="container mx-auto section-container p-5 sm:p-10 lg:p-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -6,9 +6,9 @@ import { CTA_DATA } from "@/lib/constants";
 
 export function CTA() {
   return (
-    <section id="contact" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="contact" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container texture-bg p-6 sm:p-10 lg:p-16 text-center">
+        <div className="section-container texture-bg p-5 sm:p-10 lg:p-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export function CTA() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-4">
               {CTA_DATA.headline}
             </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto mb-8">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto mb-6 sm:mb-8">
               {CTA_DATA.subtext}
             </p>
             <a

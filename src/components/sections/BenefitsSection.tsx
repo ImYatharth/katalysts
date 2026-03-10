@@ -31,9 +31,9 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section id="benefits" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="benefits" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export function BenefitsSection() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {benefits.map((b, i) => (
               <motion.div
                 key={b.title}
@@ -56,7 +56,7 @@ export function BenefitsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="border border-border rounded-xl p-6"
+                className="border border-border rounded-xl p-4 sm:p-6"
               >
                 <h4 className="font-semibold text-foreground mb-2">
                   {b.title}

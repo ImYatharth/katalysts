@@ -26,9 +26,9 @@ function CellValue({ value }: { value: string | boolean }) {
 
 export function WhyDifferent() {
   return (
-    <section className="py-3 px-4 sm:py-6 sm:px-6">
+    <section className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,14 +44,14 @@ export function WhyDifferent() {
           </motion.div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-4 pr-8 font-mono text-xs text-muted-foreground font-normal uppercase tracking-wider" />
-                  <th className="text-left py-4 pr-8 font-mono text-xs text-muted-foreground font-normal uppercase tracking-wider">
+                  <th className="text-left py-3 sm:py-4 pr-3 sm:pr-8 font-mono text-xs text-muted-foreground font-normal uppercase tracking-wider" />
+                  <th className="text-left py-3 sm:py-4 pr-3 sm:pr-8 font-mono text-xs text-muted-foreground font-normal uppercase tracking-wider">
                     traditional
                   </th>
-                  <th className="text-left py-4 font-mono text-xs text-foreground font-semibold uppercase tracking-wider">
+                  <th className="text-left py-3 sm:py-4 font-mono text-xs text-foreground font-semibold uppercase tracking-wider">
                     katalysts
                   </th>
                 </tr>
@@ -62,13 +62,13 @@ export function WhyDifferent() {
                     key={row.label}
                     className="border-b border-border last:border-0"
                   >
-                    <td className="py-4 pr-8 font-medium text-foreground">
+                    <td className="py-3 sm:py-4 pr-3 sm:pr-8 font-medium text-foreground whitespace-nowrap">
                       {row.label}
                     </td>
-                    <td className="py-4 pr-8 text-muted-foreground">
+                    <td className="py-3 sm:py-4 pr-3 sm:pr-8 text-muted-foreground">
                       <CellValue value={row.traditional} />
                     </td>
-                    <td className="py-4 text-foreground font-medium">
+                    <td className="py-3 sm:py-4 text-foreground font-medium">
                       <CellValue value={row.aiNative} />
                     </td>
                   </tr>

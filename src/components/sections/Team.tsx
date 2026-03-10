@@ -7,9 +7,9 @@ import { TEAM_MEMBERS } from "@/lib/constants";
 
 export function Team() {
   return (
-    <section id="team" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="team" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export function Team() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-6 max-w-3xl">
             {TEAM_MEMBERS.map((member, idx) => (
               <motion.div
                 key={idx}
@@ -32,7 +32,7 @@ export function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="border border-border rounded-xl p-6"
+                className="border border-border rounded-xl p-4 sm:p-6"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="relative w-14 h-14 rounded-full overflow-hidden border border-border">

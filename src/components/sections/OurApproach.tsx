@@ -13,9 +13,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function OurApproach() {
   return (
-    <section id="our-approach" className="py-3 px-4 sm:py-6 sm:px-6">
+    <section id="our-approach" className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function OurApproach() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
             {APPROACH_PILLARS.map((pillar, idx) => {
               const Icon = iconMap[pillar.icon];
               return (
@@ -40,7 +40,7 @@ export function OurApproach() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.05 }}
-                  className="border border-border rounded-xl p-6"
+                  className="border border-border rounded-xl p-4 sm:p-6"
                 >
                   {Icon && <Icon className="h-5 w-5 text-muted-foreground mb-4" />}
                   <h3 className="font-semibold text-foreground mb-2">

@@ -26,9 +26,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function TechStack() {
   return (
-    <section className="py-3 px-4 sm:py-6 sm:px-6">
+    <section className="py-2 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-6 sm:p-10 lg:p-16">
+        <div className="section-container p-5 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export function TechStack() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="bg-card p-6 text-center hover:bg-muted/50 transition-colors"
+                  className="bg-card p-4 sm:p-6 text-center hover:bg-muted/50 transition-colors"
                 >
                   <div className="flex justify-center mb-3">
                     {Icon && <Icon className="w-5 h-5 text-muted-foreground" />}
