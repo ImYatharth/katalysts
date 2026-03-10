@@ -5,19 +5,19 @@ import { HOW_WE_THINK } from "@/lib/constants";
 
 export function HowWeThink() {
   return (
-    <section id="how-we-think" className="py-6 px-6">
+    <section id="how-we-think" className="py-3 px-4 sm:py-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="section-container p-10 lg:p-16">
+        <div className="section-container p-6 sm:p-10 lg:p-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               philosophy
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-6">
               {HOW_WE_THINK.title}
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed max-w-xl">
